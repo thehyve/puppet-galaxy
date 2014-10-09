@@ -1,6 +1,6 @@
 # == Class: galaxy::universe
 #
-# universe_wsgi.ini configuration
+# galaxy.ini configuration
 #
 # === Parameters
 #
@@ -422,6 +422,9 @@
 # insufficient. The author list would include all of those who had modified the
 # file, were that faesible.
 #
+# The file `universe_wsgi.ini` was later renamed to `galaxy.ini`. The name of
+# this class still reflects the old name.
+#
 # === Copyright
 #
 # Copyright 2014, for the puppet code representing a universe_wsgi.ini resource.
@@ -596,10 +599,15 @@ class galaxy::universe(
   $whoosh_index_dir    = $galaxy::directories::whoosh_index
   $ftp_upload_dir      = $galaxy::directories::ftp
 
-  file { "$directory/universe_wsgi.ini":
+  file { "$directory/config/galaxy.ini":
     require => Class['galaxy::install'],
     content => template("galaxy/universe_wsgi.ini.erb"),
     owner   => 'galaxy',
     group   => 'galaxy',
+  }
+
+  # for transitional reasons
+  file { "$directory/universe_wsgi.ini":
+    ensure => absent,
   }
 }
