@@ -20,11 +20,5 @@ class galaxy::dependencies(){
   package { $packages:
     ensure => installed,
   }
- 
-  if 'Debian' == $osfamily {
-    package { 'dpkg' :
-      ensure => installed,
-    }
-  }
 
 }
