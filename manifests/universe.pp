@@ -455,7 +455,7 @@ class galaxy::universe(
   ],
 
   # Paths
-  $tool_config_files   = ['tool_conf.xml.sample','shed_tool_conf.xml'],
+  $tool_config_files   = ['config/tool_conf.xml.sample','config/shed_tool_conf.xml'],
   $job_config_file     = 'job_conf.xml',
 
 
