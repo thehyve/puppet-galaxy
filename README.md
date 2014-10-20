@@ -7,7 +7,6 @@
         * [Class: galaxy](#class-galaxy)
         * [Class: galaxy::dependencies](#class-galaxydependencies)
         * [Class: galaxy::params](#class-galaxyparams)
-        * [Class: galaxy::common_startup](#class-galaxycommon_startup)
         * [Class: galaxy::create_db](#class-galaxycreate_db)
         * [Class: galaxy::manage_tools](#class-galaxymanage_tools)
         * [Class: galaxy::install](#class-galaxyinstall)
@@ -35,10 +34,6 @@ This class installs all the packages required to build one new Galaxy's instance
 
 ####Class: `galaxy::params`
 This class sets the default parameters for the galaxy puppet module ( create user, directory and galaxy branch)
-
-####Class: `galaxy::common_startup`
-This class writes common_startup.sh from galaxy-central and execute it.
-This convert .samples files in .ini files and fetch the eggs.
 
 ####Class: `galaxy::create_db`
 This class executes create_db.sh to create a database and update it at the last version.
