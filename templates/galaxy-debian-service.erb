@@ -42,13 +42,22 @@ case "${1:-''}" in
         ;;
   'restart')
            # restart commands here
-	   $0 stop
-	   $0 start
-			   
+       $0 stop
+       $0 start
+
+        ;;
+  'status')
+  <% if @wk_config %>
+  su - galaxy -c 'GALAXY_RUN_ALL=1 <%= @directory %>/run.sh --daemon status'
+  <% else %>
+  su - galaxy -c '<%=@directory%>/run.sh --daemon status'
+  <% end %>
+
         ;;
   *)      # no parameter specified
-        echo "Usage: $SELF start|stop|restart|reload|force-reload|status"
+        echo "Usage: $SELF start|stop|restart|status"
         exit 1
         ;;
 esac
 
+# vim: et sw=2:
