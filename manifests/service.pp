@@ -37,8 +37,9 @@ inherits galaxy::params
     require => Class['galaxy::manage_tools']
   }-> 
   service { 'galaxy-service' :
-    ensure  => 'running',
-    enable  => true,
-    require => File['/etc/init.d/galaxy-service'],
+    ensure    => 'running',
+    enable    => true,
+    require   => File['/etc/init.d/galaxy-service'],
+    subscribe => Class["Galaxy::Universe"],
   }
 }
