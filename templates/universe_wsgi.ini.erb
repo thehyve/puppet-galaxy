@@ -492,7 +492,7 @@ remote_user_maildomain = <%= @remote_user_maildomain %>
 remote_user_logout_href = <%= @remote_user_logout_href %>
 <% end %>
 
-<% if @admin_users.size > 0 %>
+<% unless @admin_users.empty? %>
 admin_users = <%= Array(@admin_users).join(",") %>
 <% end %>
 <% if @require_login %>
@@ -545,10 +545,10 @@ new_user_dataset_access_role_default_private = True
 enable_openid = True
 openid_config_file = <%= @openid_config_file %>
 <% end %>
-<% if @allow_user_impersonation and @admin_users.size > 0%>
+<% if @allow_user_impersonation and not @admin_users.empty? %>
 # optional list of email addresses of api users who can make calls on behalf of
 # other users
-api_allow_run_as = <%= array(@admin_users).join(",") %>
+api_allow_run_as = <%= Array(@admin_users).join(",") %>
 <% end %>
 
 # enable tool tags (associating tools with tags).  this has its own option
