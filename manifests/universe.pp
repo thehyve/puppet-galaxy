@@ -451,7 +451,7 @@ class galaxy::universe(
 
   # Filters
   $filters = [
-    { type => "tool_section_filters", python_class => 'galaxy:admin' }
+    { 'type' => "tool_section_filters", python_class => 'galaxy:admin' }
   ],
 
   # Paths

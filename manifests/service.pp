@@ -25,8 +25,8 @@ class galaxy::service (
 inherits galaxy::params 
 {   
   case $osfamily {
-    Debian: { $source='galaxy/galaxy-debian-service.erb'}
-    RedHat: { $source='galaxy/galaxy.fedora-init.erb'}
+    'Debian': { $source='galaxy/galaxy-debian-service.erb'}
+    'RedHat': { $source='galaxy/galaxy.fedora-init.erb'}
     default: {fail('no init script for this osfamily')}
   }
   file { '/etc/init.d/galaxy-service':
