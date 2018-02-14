@@ -1,4 +1,9 @@
-require 'puppet/provider/vcsrepo/hg'
+begin
+  require 'puppet/provider/vcsrepo/hg'
+rescue LoadError
+  require File.expand_path(File.join(File.dirname(__FILE__), '..', '..', '..', '..', '..', 'vcsrepo', 'lib',
+                           'puppet', 'provider', 'vcsrepo', 'hg.rb'))
+end
 
 Puppet::Type.type(:vcsrepo).provide(:hg_galaxy,
                                     :parent => Puppet::Type.type(:vcsrepo).provider(:hg)) do
